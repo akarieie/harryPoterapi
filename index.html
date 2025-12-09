@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Title</title>
+  <title>Harry Poter</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -11,22 +11,49 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row text-center shadow" style="background-color: maroon;">
-            <div class="col ">
-                <div class="h1">
-                    Hogwarts 
-                </div>
-            </div>
+  <div class="container-fluid">
+    <div class="row text-center shadow" style="background-color: maroon;">
+      <div class="col ">
+        <div class="h1">
+          Hogwarts
         </div>
+      </div>
     </div>
+  </div>
+  <div class="container">
+    <div class="row" id="contents">
+
+    </div>
+  </div>
 
   <script>
     const getCharacters = async () => {
+      const contents = document.getElementById('contents');
       const res = await fetch('https://potterapi-fedeperin.vercel.app/en/characters')
-      const characters = await res.json()
+      const characterData = await res.json()
 
-      return characters
+      for (var i = 0; i < characterData.length; i++) {
+        const character = characterData[i];
+
+        const name = character.fullName;
+        const house = character.hogwartsHouse;
+        const nickname = character.nickname;
+        const image = character.image;
+
+        contents.innerHTML += `
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card my-3 shadow p-5 rounded-5 text-center">
+            <div class="mx-auto rounded-circle card-img-top-container" style="background-color: #DEFDE0;">
+              <img src="`+ image + `" class="w-100" alt="` + name + ` Poster">
+            </div>
+            <div class="my-3 h4">
+              ` + name + ` ${nickname ? `("${nickname}")` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+      }
+      return characterData
     }
     const getHouses = async () => {
       const res = await fetch('https://potterapi-fedeperin.vercel.app/en/houses')
@@ -40,7 +67,9 @@
 
       return spells
     }
-    getCharacters().then(characters => console.log(characters))
+
+    getCharacters().then(characterData => console.log(characterData))
+    getHouses().then(houseData => console.log('Houses data:', houseData))
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
