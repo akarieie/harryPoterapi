@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient(to bottom, #1a0f0f, #320000);
+    color: #f1e6c9;
+    font-family: "Cinzel", serif;
+}
+
+.navbar {
+    background: #3c0008;
+    border-bottom: 3px solid gold;
+}
+
+.navbar-brand,
+.nav-link {
+    color: gold;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.hp-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 3px solid #7c6200;
+}
+
+.hp-card:hover {
+    transform: translateY(-5px);
+}

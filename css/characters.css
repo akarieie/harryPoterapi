@@ -1,0 +1,39 @@
+body {
+    background: linear-gradient(to bottom, #1a0f0f, #320000);
+    color: #f1e6c9;
+    font-family: "Cinzel", serif;
+}
+
+.navbar {
+    background: #3c0008;
+    border-bottom: 3px solid gold;
+}
+
+.navbar-brand,
+.nav-link {
+    color: gold !important;
+    font-weight: bold;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    backdrop-filter: blur(6px);
+    color: #f8f8f8;
+}
+
+.card-img-top-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid gold;
+    background-color: #5a0000;
+    box-shadow: 0 0 20px gold;
+}
+
+.card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
